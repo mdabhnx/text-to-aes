@@ -1,4 +1,12 @@
-export const CopySvg = (props: any) => (
+interface ISvg {
+  color?: string;
+  fill?: string;
+  height?: number;
+  width?: number;
+  className?: string;
+}
+
+export const CopySvg = (props: ISvg) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
     fill='none'
