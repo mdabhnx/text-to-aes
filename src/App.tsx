@@ -1,9 +1,15 @@
 import { useState } from 'react';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { CopySvg } from './assets/icons.js';
 
 const App = () => {
   const [currentState, setCurrentState] = useState<'encrypt' | 'decrypt'>(
     'encrypt',
   );
+
+  const [content, setContent] = useState('');
+  const [lockKey, setLockKey] = useState('');
+  const [output, setOutput] = useState('');
 
   return (
     <div className='container'>
@@ -11,6 +17,7 @@ const App = () => {
         <header className='header'>
           Welcome Maste<p>r</p>
         </header>
+
         <div className='content'>
           <div className='options'>
             <button
@@ -41,13 +48,23 @@ const App = () => {
             <div className='content'>
               <>
                 <div className='title'>Enter Your Content</div>
-                <textarea cols={30} rows={10}></textarea>
+                <textarea
+                  cols={30}
+                  rows={10}
+                  value={content}
+                  onChange={(e) => setContent(e.target.value)}
+                ></textarea>
               </>
               <>
                 <div className='title'>
                   {currentState === 'encrypt' ? 'Encrypt' : 'Decrypt'} with
                 </div>
-                <input className='inp-password' type='password' />
+                <input
+                  className='inp-password'
+                  type='password'
+                  value={lockKey}
+                  onChange={(e) => setLockKey(e.target.value)}
+                />
                 <div className='submit-btn'>
                   <button>Submit</button>
                 </div>
@@ -55,6 +72,25 @@ const App = () => {
             </div>
           </div>
         </div>
+
+        {output.length > 0 && (
+          <div className='result-container'>
+            <div className='result'>
+              <CopyToClipboard text={output} onCopy={() => {}}>
+                <div className='response-area'>
+                  <CopySvg
+                    color={'white'}
+                    fill={'black'}
+                    height={30}
+                    width={30}
+                    className='copy'
+                  />
+                  <div className='data'>{output}</div>
+                </div>
+              </CopyToClipboard>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

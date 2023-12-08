@@ -10,11 +10,12 @@ html,
 body {
   font-family: 'Poppins', sans-serif;
   font-size: 10px;
-  background: #232526; /* fallback for old browsers */
+  background: #232526;
   background: -webkit-linear-gradient(to right, #414345, #232526);
   background: linear-gradient(to right, #414345, #232526);
   height: 100vh;
   width: 100vw;
+  overflow-x: hidden;
 }
 
 .container {
@@ -120,7 +121,7 @@ body {
             }
           }
           .inp-password {
-            width: 400px;
+            width: 600px;
             padding: 8px;
             border-radius: 6px;
             &:focus {
@@ -134,7 +135,11 @@ body {
               width: 160px;
               border-radius: 8px;
               background-color: black;
-              color: #fffcd5;
+              color: white;
+              font-size: 1.4rem;
+              letter-spacing: 0.2rem;
+              text-transform: lowercase;
+              user-select: none;
               &:hover {
                 cursor: pointer;
               }
@@ -143,5 +148,34 @@ body {
         }
       }
     }
+
+    .result-container {
+      position: relative;
+      background-color: white;
+      color: #151515;
+      border-radius: 8px;
+      margin-top: 2rem;
+      max-width: 60rem;
+      word-wrap: break-word;
+      word-break: break-all;
+      padding: 1rem;
+      margin-bottom: 5rem;
+    }
+  }
+}
+
+.response-area {
+  .copy {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .data {
+    user-select: none;
+    margin-top: 4rem;
   }
 }
