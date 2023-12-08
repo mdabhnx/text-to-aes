@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { AES, enc } from 'crypto-js';
 import { CopySvg } from './assets/icons.js';
 
 const App = () => {
@@ -10,6 +11,20 @@ const App = () => {
   const [content, setContent] = useState('');
   const [lockKey, setLockKey] = useState('');
   const [output, setOutput] = useState('');
+
+  const handleOperation = () => {
+    if (currentState === 'encrypt') {
+      const _result = AES.encrypt(JSON.stringify(content), lockKey).toString();
+      setOutput(String(_result));
+    }
+
+    if (currentState === 'decrypt') {
+      try {
+        const _result = AES.decrypt(content, lockKey);
+        setOutput(JSON.parse(_result.toString(enc.Utf8)));
+      } catch (error) {}
+    }
+  };
 
   return (
     <div className='container'>
@@ -66,7 +81,7 @@ const App = () => {
                   onChange={(e) => setLockKey(e.target.value)}
                 />
                 <div className='submit-btn'>
-                  <button>Submit</button>
+                  <button onClick={handleOperation}>Submit</button>
                 </div>
               </>
             </div>
