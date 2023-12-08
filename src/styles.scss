@@ -26,6 +26,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
     .header {
       display: flex;
@@ -43,6 +44,102 @@ body {
         p {
           transform: rotate(0deg);
           transition: 0.5s ease-in-out;
+        }
+      }
+    }
+
+    .content {
+      margin-top: 40px;
+      .options {
+        display: flex;
+        gap: 20px;
+        .btn {
+          background: #fffcd5;
+          box-shadow: 4px 4px #ffe00b, 9px 9px #151515;
+          color: #151515;
+          text-transform: lowercase;
+          border: solid 2px #151515;
+          text-decoration: none;
+          padding: 18px 32px;
+          display: inline-flex;
+          align-items: center;
+          font-size: 14px;
+          font-weight: 700;
+          position: relative;
+          z-index: 1;
+          transition: 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+          cursor: pointer;
+          overflow: hidden;
+          transition-delay: 0s !important;
+          text-transform: uppercase !important;
+          letter-spacing: 1.5px;
+          font-family: freight-sans-pro, sans-serif;
+        }
+        .btn::before {
+          position: absolute;
+          content: '';
+          top: 0;
+          right: 0;
+          width: 0%;
+          height: 100%;
+          background: #151515;
+          z-index: -1;
+          transition: 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        }
+        .btn:hover::before {
+          width: 100%;
+          left: 0;
+          right: unset;
+        }
+        .btn:hover {
+          box-shadow: 0 0 #ffe00b, 0 0 #151515;
+          color: white;
+        }
+      }
+    }
+
+    .operations-container {
+      margin-top: 40px;
+      .current-state-message {
+        font-size: 1.8rem;
+        text-align: center;
+      }
+      .operation {
+        .content {
+          .title {
+            margin-bottom: 5px;
+          }
+          textarea {
+            width: 600px;
+            resize: none;
+            padding: 5px;
+            border-radius: 8px;
+            font-size: 1.4rem;
+            &:focus {
+              outline: none;
+            }
+          }
+          .inp-password {
+            width: 400px;
+            padding: 8px;
+            border-radius: 6px;
+            &:focus {
+              outline: none;
+            }
+          }
+          .submit-btn {
+            margin-top: 2rem;
+            button {
+              padding: 1rem;
+              width: 160px;
+              border-radius: 8px;
+              background-color: black;
+              color: #fffcd5;
+              &:hover {
+                cursor: pointer;
+              }
+            }
+          }
         }
       }
     }
