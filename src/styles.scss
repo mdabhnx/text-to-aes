@@ -53,7 +53,13 @@ body {
       margin-top: 40px;
       .options {
         display: flex;
-        gap: 20px;
+        gap: 2rem;
+
+        @media (max-width: 600px) {
+          flex-direction: column;
+          gap: 2rem;
+        }
+
         .btn {
           background: #fffcd5;
           box-shadow: 4px 4px #ffe00b, 9px 9px #151515;
@@ -96,6 +102,12 @@ body {
           box-shadow: 0 0 #ffe00b, 0 0 #151515;
           color: white;
         }
+
+        .btn-active {
+          box-shadow: 0 0 #ffe00b, 0 0 #151515 !important;
+          color: white !important;
+          background-color: black;
+        }
       }
     }
 
@@ -107,6 +119,12 @@ body {
       }
       .operation {
         .content {
+          @media (max-width: 600px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
           .title {
             margin-bottom: 5px;
           }
@@ -119,6 +137,10 @@ body {
             &:focus {
               outline: none;
             }
+
+            @media (max-width: 600px) {
+              width: 400px;
+            }
           }
           .inp-password {
             width: 600px;
@@ -127,6 +149,9 @@ body {
             &:focus {
               outline: none;
             }
+            @media (max-width: 600px) {
+              width: 400px;
+            }
           }
           .submit-btn {
             margin-top: 2rem;
@@ -134,9 +159,10 @@ body {
               padding: 1rem;
               width: 160px;
               border-radius: 8px;
-              background-color: black;
-              color: white;
+              background: #fffcd5;
+              color: black;
               font-size: 1.4rem;
+              font-weight: 700;
               letter-spacing: 0.2rem;
               text-transform: lowercase;
               user-select: none;
@@ -165,7 +191,11 @@ body {
 }
 
 .response-area {
-  min-width: 560px;
+  min-width: 580px;
+  @media (max-width: 600px) {
+    min-width: 380px;
+    max-width: 380px;
+  }
   .copy {
     position: absolute;
     right: 1rem;
