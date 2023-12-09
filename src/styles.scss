@@ -53,7 +53,13 @@ body {
       margin-top: 40px;
       .options {
         display: flex;
-        gap: 20px;
+        gap: 2rem;
+
+        @media (max-width: 600px) {
+          flex-direction: column;
+          gap: 2rem;
+        }
+
         .btn {
           background: #fffcd5;
           box-shadow: 4px 4px #ffe00b, 9px 9px #151515;
@@ -113,6 +119,12 @@ body {
       }
       .operation {
         .content {
+          @media (max-width: 600px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
           .title {
             margin-bottom: 5px;
           }
@@ -125,6 +137,10 @@ body {
             &:focus {
               outline: none;
             }
+
+            @media (max-width: 600px) {
+              width: 400px;
+            }
           }
           .inp-password {
             width: 600px;
@@ -132,6 +148,9 @@ body {
             border-radius: 6px;
             &:focus {
               outline: none;
+            }
+            @media (max-width: 600px) {
+              width: 400px;
             }
           }
           .submit-btn {
@@ -172,7 +191,11 @@ body {
 }
 
 .response-area {
-  min-width: 560px;
+  min-width: 580px;
+  @media (max-width: 600px) {
+    min-width: 380px;
+    max-width: 380px;
+  }
   .copy {
     position: absolute;
     right: 1rem;

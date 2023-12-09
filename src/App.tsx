@@ -96,7 +96,7 @@ const App = () => {
             </div>
             <div className='operation'>
               <div className='content'>
-                <>
+                <div>
                   <div className='title'>Enter Your Content</div>
                   <textarea
                     cols={30}
@@ -104,8 +104,8 @@ const App = () => {
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                   ></textarea>
-                </>
-                <>
+                </div>
+                <div>
                   <div className='title'>
                     {currentState === 'encrypt' ? 'Encrypt' : 'Decrypt'} with
                   </div>
@@ -118,7 +118,7 @@ const App = () => {
                   <div className='submit-btn'>
                     <button onClick={handleOperation}>Submit</button>
                   </div>
-                </>
+                </div>
               </div>
             </div>
           </div>
