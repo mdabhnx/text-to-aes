@@ -71,7 +71,7 @@ const App = () => {
           <div className='content'>
             <div className='options'>
               <button
-                className='btn'
+                className={`btn ${currentState === 'encrypt' && 'btn-active'}`}
                 onClick={() => {
                   setCurrentState('encrypt');
                 }}
@@ -79,7 +79,7 @@ const App = () => {
                 Encrypt Your Text
               </button>
               <button
-                className='btn'
+                className={`btn ${currentState === 'decrypt' && 'btn-active'}`}
                 onClick={() => {
                   setCurrentState('decrypt');
                 }}

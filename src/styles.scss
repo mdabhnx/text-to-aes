@@ -96,6 +96,12 @@ body {
           box-shadow: 0 0 #ffe00b, 0 0 #151515;
           color: white;
         }
+
+        .btn-active {
+          box-shadow: 0 0 #ffe00b, 0 0 #151515 !important;
+          color: white !important;
+          background-color: black;
+        }
       }
     }
 
@@ -134,9 +140,10 @@ body {
               padding: 1rem;
               width: 160px;
               border-radius: 8px;
-              background-color: black;
-              color: white;
+              background: #fffcd5;
+              color: black;
               font-size: 1.4rem;
+              font-weight: 700;
               letter-spacing: 0.2rem;
               text-transform: lowercase;
               user-select: none;
